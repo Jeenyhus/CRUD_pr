@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import ItemForm
 from .models import Item
+from django.contrib import messages
 
 # Create your views here.
 def add(request):
@@ -9,6 +10,7 @@ def add(request):
     #item = Item.objects.all()
     if form.is_valid():
         form.save()
+        messages.success(request, 'Item added Successfully!')
     return render(request, 'add.html', {'form': form})
 
 def show(request):

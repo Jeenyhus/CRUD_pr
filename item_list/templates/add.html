@@ -5,8 +5,18 @@
 
 {% block content %}
 <div class="container mt-4">
-
+   
     <h4>New Item</h4>
+    <p>Add new household Items!</p>
+
+    {% for msg in messages %}
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">{{ msg }}</h4>
+      </div>
+
+    {% endfor %}
+
+
     <hr>
     <form action="" method="POST">
         {% csrf_token %}
